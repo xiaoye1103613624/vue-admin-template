@@ -32,6 +32,91 @@ import Layout from '@/layout'
  */
 export const constantRoutes = [
   {
+    path: '/xiaoye',
+    component: Layout,
+    redirect: '/xiaoye/myTable',
+    name: 'Xiaoye',
+    meta: { title: 'Xiaoye', icon: 'el-icon-refrigerator' },
+    children: [
+      {
+        path: 'myTable',
+        name: 'myTable',
+        component: () => import('@/views/demo/myTable'),
+        meta: { title: '表格案例', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/host_manager',
+    component: Layout,
+    redirect: '/host_manager/list',
+    name: 'list',
+    meta: { title: '主机资源', icon: 'el-icon-grape' },
+    children: [
+      {
+        path: 'list',
+        name: 'list',
+        component: () => import('@/views/host_manager/list'),
+        meta: { title: '主机资源', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/space_manager',
+    component: Layout,
+    redirect: '/space_manager/list',
+    name: 'space_manager',
+    meta: { title: 'Xiaoye', icon: 'el-icon-watermelon' },
+    children: [
+      {
+        path: 'myTable',
+        name: 'myTable',
+        component: () => import('@/views/demo/myTable'),
+        meta: { title: '空间管理', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/application_manager',
+    component: Layout,
+    redirect: '/application_manager/list',
+    name: 'application_manager',
+    meta: { title: '应用管理', icon: 'el-icon-cherry' },
+    children: [
+      {
+        path: 'myTable',
+        name: 'myTable',
+        component: () => import('@/views/demo/myTable'),
+        meta: { title: '应用管理', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/site_manager',
+    component: Layout,
+    redirect: '/site_manager/myTable',
+    name: 'site_manager',
+    meta: { title: '站点设置', icon: 'el-icon-apple' },
+    children: [
+      {
+        path: 'myTable',
+        name: 'myTable',
+        component: () => import('@/views/demo/myTable'),
+        meta: { title: '站点设置', icon: 'table' }
+      }
+    ]
+  },
+
+
+
+  {
+    path: '/',
+    component: () => import('@/views/login/index'),
+    redirect: '/host_manager',
+    hidden: true
+  },
+
+  {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
@@ -44,9 +129,8 @@ export const constantRoutes = [
   },
 
   {
-    path: '/',
+    path: '/dashboard',
     component: Layout,
-    redirect: '/dashboard',
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
